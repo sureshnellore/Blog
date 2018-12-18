@@ -1,0 +1,29 @@
+.content{
+
+width:60%;
+float:left;
+background:red;
+height:100%;
+padding:0 0 0 30px;
+
+}
+.sidebar {
+
+width:40%;
+float:right;
+background:green;
+height:100%;
+
+}
+.main{
+text-align:center;
+border-bottom:1px solid green;
+
+}
+body{
+color:white;
+}
+a {
+color:#ffff99;
+}
+
