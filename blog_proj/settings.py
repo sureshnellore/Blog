@@ -125,7 +125,7 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 
-# Email Bakcend
+# Email Backend
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

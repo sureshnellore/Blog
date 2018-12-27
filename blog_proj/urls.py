@@ -19,12 +19,17 @@ from blog import views
 
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path('Home/', views.post_list_view),
-    path('(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<post>[-\w]+)/$', views.post_details_view, name='post_details'),
-    path('(?P<id>\d+)/share/$', views.mail_send_view),
+    path('', views.post_list_view),
+    path('<int:year>/<int:month>/<int:day>/(?P<post>[-\w]+)/', views.post_details_view, name= 'post_details'),
+    path('<int:id>/share/', views.mail_send_view),
 
 ]
+
+
+
+
 
 
 

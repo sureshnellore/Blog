@@ -6,9 +6,9 @@ from django.urls import reverse
 
 # Create your models here.
 
-'''class CustomManager(models.manager):
-    def get_queryset(self):
-        return super().get_queryset.filter(status='published')'''
+# class CustomManager(models.manager):
+#     def get_queryset(self):
+#         return super().get_queryset.filter(status='published')
 
 
 class Post(models.Model):
@@ -22,7 +22,7 @@ class Post(models.Model):
     updated = models.DateTimeField(auto_now=True)
     publish = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=10, choices=STATIC_CHOICE, default='draft')
-    #objects = CustomManager()
+    # objects = CustomManager()
 
     class Meta:
         ordering = ('-publish', )
@@ -34,7 +34,20 @@ class Post(models.Model):
         return reverse('post_details', args=[self.publish.year, self.publish.strftime('%m'), self.publish.strftime('%d'),self.slug])
 
 
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    name = models.CharField(max_length=30)
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
 
+    class Meta:
+        ordering = ('-created',)
+
+    def __str__(self):
+        return 'Commented by {} on {}'.format(self.name, self.post)
 
 
 
