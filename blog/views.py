@@ -39,7 +39,7 @@ def post_details_view(request, year, month, day, post):
             csubmit = True
     else:
         form = CommentForm()
-    return render(request, 'blog/post_details.html', {'post': post, 'form':form, 'csubmit': csubmit})
+    return render(request, 'blog/post_details.html', {'post': post, 'form':form, 'csubmit': csubmit, 'comments': comments})
 
 
 def mail_send_view(request, id):

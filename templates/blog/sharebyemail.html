@@ -6,12 +6,14 @@
 <h2>Post with title:{{post.title}} information shared by email</h2>
 
 {% else %}
-        <h1>Share {{post.title}} By Email</h1>
-        <form method="POST">
-            {{form.as_p}}
-            {% csrf_token %}
-            <input type="submit" value="Send Email" class="btn btn-primary btn-lg">
-        </form>
+<h1>Share {{post.title}} By Email</h1>
+<table>
+    <form method="POST">
+        {{form.as_table}}
+        {%csrf_token%}
+    </form>
+</table>
+<input type="submit" value="Send Email" class="btn btn-primary btn-lg">
 {% endif %}
 {% endblock %}
 

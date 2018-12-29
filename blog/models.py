@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse
-
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -23,6 +23,8 @@ class Post(models.Model):
     publish = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=10, choices=STATIC_CHOICE, default='draft')
     # objects = CustomManager()
+    tags = TaggableManager()
+
 
     class Meta:
         ordering = ('-publish', )

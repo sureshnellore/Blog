@@ -26,7 +26,17 @@ color:white;
 a {
 color:#ffff99;
 }
+.ch{
+color:yellow;
+font-size:30px;
+font-style:italic;
+border-bottom: 2px solid yellow;
 
+}
+#table {
+  border-collapse: separate;
+  border-spacing: 15px;
+}
 
 
 

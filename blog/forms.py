@@ -1,6 +1,7 @@
 from django import forms
 from blog.models import Comment
 
+
 class EmailSendForm(forms.Form):
     name = forms.CharField()
     email = forms.EmailField()

@@ -22,7 +22,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', views.post_list_view),
-    path('<int:year>/<int:month>/<int:day>/(?P<post>[-\w]+)/', views.post_details_view, name= 'post_details'),
+    path('<int:year>/<int:month>/<int:day>/<int:post>/', views.post_details_view, name= 'post_details'),
     path('<int:id>/share/', views.mail_send_view),
 
 ]
