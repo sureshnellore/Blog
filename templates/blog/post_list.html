@@ -2,9 +2,17 @@
 {% block title_block %}SURESH's BLOG{% endblock %}
 {% block content %}
 <h1 class="main">SURESH's BLOG</h1>
+{% if tag %}
+<h3>Post's tagged with '{{tag.name}}'</h3>
+{%endif%}
 {% for post in post_list %}
 <a href="{{post.get_absolute_url}}"><h2>{{post.title}}</h2></a>
 <p id="date">Published on {{post.publish}} by {{post.author|title}}</p>
+<p>Tags:
+    {% for tag in post.tags.all %}
+    {{tag.name}}
+    {%endfor%}
+</p>
 {{post.body|truncatewords:30|linebreaks}}
 
 {% endfor %}

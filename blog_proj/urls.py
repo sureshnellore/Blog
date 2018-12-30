@@ -21,8 +21,8 @@ from blog import views
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('', views.post_list_view),
-    path('<int:year>/<int:month>/<int:day>/<int:post>/', views.post_details_view, name= 'post_details'),
+    path('tag/(<int:tag_slug>/', views.post_list_view, name='post_list_by_tag_name'),
+    path('<int:year>/<int:month>/<int:day>/(?P<post>)/', views.post_details_view, name='post_details'),
     path('<int:id>/share/', views.mail_send_view),
 
 ]
