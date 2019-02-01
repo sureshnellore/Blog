@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load blog_tags %}
 {% load staticfiles %}
 <html lang="en">
 <head>
@@ -14,6 +15,16 @@
 <div class="sidebar">
     <h2>SURESH BLOG</h2>
     <p>Here you can see python updations.....</p>
+    <h2>the total number of published posts upto today: {% total_posts %}</h2>
+    <h4>Latest posts:</h4>{%show_latest_posts%}
+    <h4>Most commented posts:</h4>
+
+    <ul>
+        {% for post in get_most_commented_posts %}
+        <li><a href="{{post.get_absolute_url}}">{{post.title}}</a> </li>
+        {% endfor %}
+    </ul>
+
 
 </div>
 

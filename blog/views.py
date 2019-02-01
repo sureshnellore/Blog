@@ -13,7 +13,7 @@ def post_list_view(request, tag_slug=None):
     post_list = Post.objects.all()
     tag = None
     if tag_slug:
-        tag = get_object_or_404(tag, slug = tag_slug)
+        tag = get_object_or_404(Tag, slug=tag_slug)
         post_list = post_list.filter(tags__in=[tag])
 
     '''creating paginator'''
