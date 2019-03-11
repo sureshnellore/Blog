@@ -69,6 +69,3 @@ def mail_send_view(request, id):
 
 
 
-
-
-
